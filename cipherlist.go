@@ -119,6 +119,11 @@ func supportedTLS12Ciphers(hostname string) []uint16 {
 }
 
 func main() {
+	if len(os.Args) < 2 {
+		fmt.Println("usage: cipherlist <hostname>")
+		return
+	}
+
 	hostname := os.Args[1]
 	fmt.Println("Supported TLS 1.2 ciphers")
 	for _, c := range supportedTLS12Ciphers(hostname) {
